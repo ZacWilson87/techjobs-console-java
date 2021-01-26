@@ -1,9 +1,6 @@
 package org.launchcode.techjobs.console;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -112,6 +109,9 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        someJobs.sort(Comparator.comparing(x -> x.get("employer"),
+                Comparator.nullsLast(Comparator.naturalOrder())));
+
         if(someJobs.isEmpty()){
             System.out.println("Sorry! No Jobs for this search parameter.");
 
